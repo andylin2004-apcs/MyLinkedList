@@ -21,7 +21,15 @@ class MyLinkedList{
     return true;
   }
   public void add(int index, String value){
-    
+    if (this.size == 0){
+      this.start = new Node(value);
+    }else if(index == size){
+      Node temp = this.end;
+      this.end = new Node(value);
+      temp.setNext(this.end);
+      this.end.setPrev(temp);
+    }
+    this.size++;
   }
   public String get(int index){
     return
