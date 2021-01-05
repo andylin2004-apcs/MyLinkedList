@@ -28,16 +28,36 @@ class MyLinkedList{
       this.end = new Node(value);
       temp.setNext(this.end);
       this.end.setPrev(temp);
+    }else{
+      Node inserted = new Node(value);
+      Node newPrev = find(index);
+      Node newNext = newPrev.getNext();
+      newPrev.setNext(inserted);
+      newNext.setPrev(inserted);
+      inserted.setNext(newNext);
+      inserted.setPrev(newPrev);
     }
     this.size++;
   }
   public String get(int index){
-    return
+    return find(index).get();
   }
   public String set(int index, String value){
-    return
+    Node toSet = find(index);
+    return toSet.set(value);
   }
   public String toString(){
-    return;
+    return "";
+  }
+
+  private Node find(int pos){
+    int spot = 0;
+    Node current = this.start;
+    while (pos <= spot && current != null){
+      System.out.println(current.get());
+      current = current.getNext();
+      spot++;
+    }
+    return current;
   }
 }
