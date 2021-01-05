@@ -2,8 +2,8 @@ class Node{
  private String data;
  private Node next,prev;
 
- public void setData(String in){
-   this.data = in;
+ public Node(String value){
+   this.data = value;
  }
  public void setPrev(Node in){
    this.prev = in;
@@ -15,7 +15,7 @@ class Node{
    return this.data;
  }
  public String getPrev(){
-   return prev.getData()
+   return prev.getData();
  }
  public String getNext(){
    return next.getData();
