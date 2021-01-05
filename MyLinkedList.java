@@ -42,12 +42,21 @@ class MyLinkedList{
   public String get(int index){
     return find(index).get();
   }
+  
   public String set(int index, String value){
     Node toSet = find(index);
     return toSet.set(value);
   }
+
   public String toString(){
-    return "";
+    String result = "";
+    Node current = this.start;
+    while (current != null){
+      System.out.println(current.get());
+      result += current.get();
+      current = current.getNext();
+    }
+    return result;
   }
 
   private Node find(int pos){
