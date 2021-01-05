@@ -11,13 +11,18 @@ class Node{
  public void setNext(Node in){
    this.next = in;
  }
- public String getData(){
+ public String get(){
    return this.data;
  }
- public String getPrev(){
-   return prev.getData();
+
+ public void set(String in){
+   this.data = in;
  }
- public String getNext(){
-   return next.getData();
+ 
+ public Node getPrev(){
+   return prev;
+ }
+ public Node getNext(){
+   return next;
  }
 }
