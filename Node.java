@@ -11,14 +11,16 @@ class Node{
  public void setNext(Node in){
    this.next = in;
  }
- public String get(){
+ public String getValue(){
    return this.data;
  }
 
- public void set(String in){
+ public String setValue(String in){
+   String toReturn = this.data;
    this.data = in;
+   return toReturn;
  }
- 
+
  public Node getPrev(){
    return prev;
  }
