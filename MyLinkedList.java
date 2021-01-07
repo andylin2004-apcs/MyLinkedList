@@ -12,6 +12,12 @@ class MyLinkedList{
     return this.size;
   }
 
+  private void nuke(){
+    this.start = null;
+    this.end = null;
+    size = 0;
+  }
+
   public boolean add(String value){
     if (this.size == 0){
       this.start = new Node(value);
@@ -108,11 +114,13 @@ class MyLinkedList{
       cutLeft.setNext(cutRight);
       cutRight.setPrev(cutLeft);
     }
+    size--;
     return result;
   }
 
   public void extend(MyLinkedList other){
     this.end.setNext(other.start);
     other.start.setPrev(this.end);
+    other.nuke();
   }
 }
