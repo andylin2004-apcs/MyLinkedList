@@ -7,9 +7,11 @@ class MyLinkedList{
   public MyLinkedList(){
     size = 0;
   }
+
   public int size(){
     return this.size;
   }
+
   public boolean add(String value){
     if (this.size == 0){
       this.start = new Node(value);
@@ -23,6 +25,7 @@ class MyLinkedList{
     this.size++;
     return true;
   }
+
   public void add(int index, String value){
     if (index < 0 || index > this.size()){
       throw new IndexOutOfBoundsException();
@@ -51,6 +54,7 @@ class MyLinkedList{
     }
     this.size++;
   }
+
   public String get(int index){
     if (this.size >= index || index < 0){
       throw new IndexOutOfBoundsException();
@@ -85,5 +89,25 @@ class MyLinkedList{
       spot++;
     }
     return current;
+  }
+
+  public String remove(int index){
+    String result;
+    if (index == 0){
+      result = this.start.getValue();
+      this.start = this.start.getNext();
+      this.start.setPrev(null);
+    }else if (index == size-1){
+      result = this.end.getValue();
+      this.end = this.end.getPrev();
+      this.end.setNext(null);
+    }else{
+      result = find(index).getValue();
+      Node cutLeft = find(index).getPrev();
+      Node cutRight = find(index).getNext();
+      cutLeft.setNext(cutRight);
+      cutRight.setPrev(cutLeft);
+    }
+    return result;
   }
 }
