@@ -110,4 +110,9 @@ class MyLinkedList{
     }
     return result;
   }
+
+  public void extend(MyLinkedList other){
+    this.end.setNext(other.start);
+    other.start.setPrev(this.end);
+  }
 }
