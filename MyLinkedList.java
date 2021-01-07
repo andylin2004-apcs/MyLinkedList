@@ -12,12 +12,6 @@ class MyLinkedList{
     return this.size;
   }
 
-  private void nuke(){
-    this.start = null;
-    this.end = null;
-    size = 0;
-  }
-
   public boolean add(String value){
     if (this.size == 0){
       this.start = new Node(value);
@@ -87,6 +81,20 @@ class MyLinkedList{
     return result+"]";
   }
 
+  public String toStringReversed(){
+    String result = "[";
+    Node current = this.end;
+    while (current != null){
+      if (!result.equals("[")){
+        result += ", ";
+      }
+      System.out.println(current.getValue());
+      result += current.getValue();
+      current = current.getPrev();
+    }
+    return result+"]";
+  }
+
   private Node find(int pos){
     int spot = 0;
     Node current = this.start;
@@ -121,6 +129,10 @@ class MyLinkedList{
   public void extend(MyLinkedList other){
     this.end.setNext(other.start);
     other.start.setPrev(this.end);
-    other.nuke();
+    this.end = other.end;
+    this.size += other.size();
+    other.size = 0;
+    other.start = null;
+    other.end = null;
   }
 }
