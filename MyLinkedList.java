@@ -74,7 +74,6 @@ class MyLinkedList{
       if (!result.equals("[")){
         result += ", ";
       }
-      System.out.println(current.getValue());
       result += current.getValue();
       current = current.getNext();
     }
@@ -88,7 +87,6 @@ class MyLinkedList{
       if (!result.equals("[")){
         result += ", ";
       }
-      System.out.println(current.getValue());
       result += current.getValue();
       current = current.getPrev();
     }
