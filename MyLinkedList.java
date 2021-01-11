@@ -106,11 +106,14 @@ class MyLinkedList{
   }
 
   public String remove(int index){
+    if (index < 0 || index >= this.size()){
+      throw new IndexOutOfBoundsException();
+    }
     String result;
     if (index == 0){
       result = this.start.getValue();
       this.start = this.start.getNext();
-      this.start.setPrev(null);
+      // this.start.setPrev(null);
     }else if (index == size-1){
       result = this.end.getValue();
       this.end = this.end.getPrev();
